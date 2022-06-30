@@ -1,0 +1,22 @@
+{
+  "name": "calorie-tracker",
+  "version": "1.0.0",
+  "description": "a webapp for tracking and saving favorite meals so to track calories",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewmiter/calorie-tracker.git"
+  },
+  "author": "Ewan M-C",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ewmiter/calorie-tracker/issues"
+  },
+  "homepage": "https://github.com/ewmiter/calorie-tracker#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
