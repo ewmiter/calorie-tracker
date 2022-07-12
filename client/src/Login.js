@@ -1,10 +1,19 @@
 import logo from './logo.svg';
 import './Login.css';
-import {useState} from "react"
+import {useState,useEffect} from "react"
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 const post_path = "/login"
 function Login() {
-  const [page , setPage] = useState("")
+  const Navigate = useNavigate();
+  useEffect(() => {
+    axios.get('/isLoggedIn')
+    .then((res) => {
+      if(res.data == true){
+        Navigate("/")
+      }
+    });
+  }, [""]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   function performValidation() {
@@ -12,9 +21,9 @@ function Login() {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post(post_path, {username:username,password:password}).then((res) => {
+    axios.post(post_path, {username:username,password:password},{ withCredentials: true }).then((res) => {
         if(res.data == true){
-
+          Navigate("/")
         }else{
 
         }
