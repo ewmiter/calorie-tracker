@@ -13,6 +13,7 @@
     margin:0px;
     padding:15px 0px 0px 0px
 }
+
 .Nav li{
     padding:15px 25px 15px 25px;
     margin:10px 0px 0px 0px ;
@@ -21,16 +22,9 @@
     border-radius: 3px;
     font-size: 40px;
 }
+
 .Nav li:hover{
     cursor:pointer;
-}
-.Content{
-    display: flex;
-    height:100%;
-    position: absolute;
-    left:25%;
-    padding-left:30px;
-    margin:0;
 }
 .Nav-Active{
     background-color:brown;

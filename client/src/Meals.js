@@ -1,11 +1,11 @@
 import './Main.css';
-function Main() {
+function Meals() {
   return (
   <div className="Main">
     <div className="Content">
-      <h1>Main</h1>
+      <h1>Meals</h1>
     </div>
   </div>
   );
 }
-export default Main;
+export default Meals;

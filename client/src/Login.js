@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './Login.css';
 import {useState,useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
@@ -7,9 +6,9 @@ const post_path = "/login"
 function Login() {
   const Navigate = useNavigate();
   useEffect(() => {
-    axios.get('/isLoggedIn')
+    axios.get('/GetUserData')
     .then((res) => {
-      if(res.data == true){
+      if(res.data !== false){
         Navigate("/")
       }
     });
@@ -22,7 +21,7 @@ function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     axios.post(post_path, {username:username,password:password},{ withCredentials: true }).then((res) => {
-        if(res.data == true){
+        if(res.data === true){
           Navigate("/")
         }else{
 

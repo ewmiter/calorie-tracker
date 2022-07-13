@@ -31,12 +31,12 @@ app.get("/",(req,res) =>{
     res.send("test");
 });
 
-app.get("/isLoggedIn",(req,res) =>{
+app.get("/GetUserData",(req,res) =>{
     console.log(req.session)
     if(req.session.user == undefined){
         res.send(false);
     }else{
-        res.send(true);
+        res.json({"username":"Ewan"});
     }
 });
 
