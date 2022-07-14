@@ -1,10 +1,10 @@
+import './Goals.css';
 import './Main.css';
 import {useEffect,useState} from "react"
 import {useNavigate,useLocation} from 'react-router-dom'
 import Nav from "./Nav";
 import axios from "axios";
-
-function Main(props) {
+function Goals() {
   const [Path,setPath] = useState("")
   const [Username,SetUsername] = useState("")
   const Navigate = useNavigate();
@@ -13,7 +13,7 @@ function Main(props) {
     setPath(Location.pathname)
       axios.get('/GetUserData',{ withCredentials: true }).then((res) => {
       if(res.data == false){
-          Navigate("/login")
+          Navigate("/login");
       }else{
           SetUsername(res.data.username);
       }
@@ -23,17 +23,15 @@ function Main(props) {
   useEffect(() => {
     setPath(Location.pathname)
   }, [Location]);
-
   return (
   <>
     <Nav Username={Username} path={Path}/>
     <div className="Main">
       <div className="Content">
-        <h1>Welcome back: {Username}</h1>
-        <h1></h1>
+        <h1>Goals</h1>
       </div>
     </div>
   </>
   );
 }
-export default Main;
+export default Goals;

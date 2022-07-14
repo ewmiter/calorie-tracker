@@ -3,16 +3,21 @@ import {useState,useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 const post_path = "/login"
-function Login() {
+function Login(props) {
   const Navigate = useNavigate();
-  useEffect(() => {
+  /*useEffect(() => {
     axios.get('/GetUserData')
     .then((res) => {
       if(res.data !== false){
         Navigate("/")
       }
     });
-  }, [""]);
+  }, [""]);*/
+  useEffect(() => {
+    if(props.auth === true){
+        Navigate("/")
+    }
+  });
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   function performValidation() {

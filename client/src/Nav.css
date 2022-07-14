@@ -1,6 +1,5 @@
 .Nav{
     background-color: darkgrey;
-    display:flex;
     height:100%;
     width: 15%;
     position: absolute;
@@ -10,29 +9,34 @@
     margin:0;
 }
 .Nav ul{
+    position: relative;
     margin:0px;
     padding:auto;
-    padding-top: 5vw;
+    padding-top: 0vw;
     padding-left:10px;
 }
 .Nav li{
     padding:auto;
-    margin:10px 30px 10px 10px ;
+    margin:10px 30px 10px 10px;
     list-style-type: none;
     border: 2px solid black;
-    border-radius: 3px;
+    border-radius: 10px;
     width:auto;
-    font-size: 3vw;
+    font-size: 2vw;
+    text-align: center;
 }
-
+.Nav div{
+    display:block;
+    margin-top:10px;
+}
 .Nav-Username{
-    display:flex;
-    position:absolute;
-    top:0;
-    font-size:3vw;
+    width:100%;
+    height:auto;
 }
 .Nav-Username p{
-    margin:20px 0px 0px 0px;
+    text-align: center;
+    margin:0px;
+    font-size:3vw;
 }
 .Nav li:hover{
     cursor:pointer;

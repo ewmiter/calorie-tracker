@@ -1,38 +1,22 @@
 import './Nav.css';
-import {useEffect,useState} from "react"
-import {useNavigate,useLocation} from 'react-router-dom'
-import axios from "axios";
-function Nav() {
-    const [Path,setPath] = useState("")
-    const [Username,SetUsername] = useState("error")
-    const Navigate = useNavigate();
-    const Location = useLocation();
-    useEffect(() => {
-        var path = Location.pathname
-        console.log(path);
-        axios.get('/GetUserData',{ withCredentials: true }).then((res) => {
-        if(res.data == false){
-            Navigate("/login")
-        }else{
-            SetUsername(res.data.username);
-        }
-        });
-    }, [""]);
-
-    useEffect(() => {
-        var path = Location.pathname
-        setPath(path)
-    }, [Location]);
+import {useNavigate} from 'react-router-dom'
+function Nav(props) {
+  const Navigate = useNavigate();
   return (
     <div className="Nav">
       <div className='Nav-Username'>
       <p>User:</p>
-      <p>{Username}</p>
+      <p>{props.Username}</p>
       </div>
-      <ul>
-        <li className={Path === "/" ? "Nav-Active":""} onClick={() => {Navigate("/")}}>Main</li>
-        <li className={Path === "/meals" ? "Nav-Active":""} onClick={() => {Navigate("/meals")}}>Meals</li>
-      </ul>
+      <div>
+        <ul>
+          <li className={props.Path === "/" ? "Nav-Active":""} onClick={() => {Navigate("/")}}>Main</li>
+          <li className={props.Path === "/days" ? "Nav-Active":""} onClick={() => {Navigate("/days")}}>Days</li>
+          <li className={props.Path === "/meals" ? "Nav-Active":""} onClick={() => {Navigate("/meals")}}>Meals</li>
+          <li className={props.Path === "/goals" ? "Nav-Active":""} onClick={() => {Navigate("/goals")}}>Goals</li>
+          <li className={props.Path === "/weight" ? "Nav-Active":""} onClick={() => {Navigate("/weight")}}>Weight</li>
+        </ul>
+      </div>
   </div>
   );
 }

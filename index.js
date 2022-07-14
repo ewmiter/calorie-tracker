@@ -32,7 +32,6 @@ app.get("/",(req,res) =>{
 });
 
 app.get("/GetUserData",(req,res) =>{
-    console.log(req.session)
     if(req.session.user == undefined){
         //res.send(false);
         res.json({"username":"Ewan"});
