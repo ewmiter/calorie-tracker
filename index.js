@@ -34,7 +34,8 @@ app.get("/",(req,res) =>{
 app.get("/GetUserData",(req,res) =>{
     console.log(req.session)
     if(req.session.user == undefined){
-        res.send(false);
+        //res.send(false);
+        res.json({"username":"Ewan"});
     }else{
         res.json({"username":"Ewan"});
     }
@@ -49,7 +50,7 @@ app.post("/login",(req,res) =>{
     }else{
         console.log("login attempt U:"+req.body.username + " P:" + req.body.password +". It was Incorrect");
         res.send(false)
-    }
+   }
 });
 
 app.listen(port,host,(err) => {

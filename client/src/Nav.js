@@ -25,10 +25,14 @@ function Nav() {
     }, [Location]);
   return (
     <div className="Nav">
-    <ul>
-      <li className={Path === "/" ? "Nav-Active":""} onClick={() => {Navigate("/")}}>Main</li>
-      <li className={Path === "/meals" ? "Nav-Active":""} onClick={() => {Navigate("/meals")}}>Meals</li>
-    </ul>
+      <div className='Nav-Username'>
+      <p>User:</p>
+      <p>{Username}</p>
+      </div>
+      <ul>
+        <li className={Path === "/" ? "Nav-Active":""} onClick={() => {Navigate("/")}}>Main</li>
+        <li className={Path === "/meals" ? "Nav-Active":""} onClick={() => {Navigate("/meals")}}>Meals</li>
+      </ul>
   </div>
   );
 }
