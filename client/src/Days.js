@@ -1,5 +1,5 @@
 import './Days.css';
-function Days(props) {
+function Days() {
   return (
   <div className="Main">
     <div className="Content">

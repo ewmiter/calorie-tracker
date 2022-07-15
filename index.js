@@ -1,12 +1,14 @@
 // dependencies
 const express = require("express");
 const bodyparser = require("body-parser");
-var session = require('express-session')
+const session = require('express-session')
+const colors = require('colors');
 
 // varables
-var app = express()
-var host = "127.0.0.1"
-var port = 8080
+colors.enable();
+let app = express()
+let host = "127.0.0.1"
+let port = 8080
 
 //defaults
 app.set('trust proxy', 1);
@@ -19,7 +21,8 @@ app.use(session({
 
 
 app.use((req,res,next)=>{
-    console.log("Request from "+req.ip+" for "+req.originalUrl)
+    console.log("Request".brightMagenta +" from "+req.ip.brightCyan+" for "+req.originalUrl.brightRed+" at " + new Date().toLocaleTimeString().brightYellow)
+
     next();
 });
 
@@ -33,8 +36,8 @@ app.get("/",(req,res) =>{
 
 app.get("/GetUserData",(req,res) =>{
     if(req.session.user == undefined){
-        //res.send(false);
-        res.json({"username":"Ewan"});
+        res.send(false);
+        //res.json({"username":"Ewan"});
     }else{
         res.json({"username":"Ewan"});
     }
@@ -42,16 +45,16 @@ app.get("/GetUserData",(req,res) =>{
 
 app.post("/login",(req,res) =>{
     if(req.body.username === "ewan" && req.body.password === "1"){
-        console.log("login attempt U:"+req.body.username + " P:" + req.body.password +". It was Correct");
+        console.log("login attempt U:"+req.body.username.brightYellow + " P:" + req.body.password.brightYellow +". It was "+"Correct".brightGreen);
         res.send(true)
         req.session.user = "ewan"
         req.session.save();
     }else{
-        console.log("login attempt U:"+req.body.username + " P:" + req.body.password +". It was Incorrect");
+        console.log("login attempt U:"+req.body.username.brightYellow + " P:" + req.body.password.brightYellow +". It was "+"Incorrect".brightRed);
         res.send(false)
    }
 });
 
 app.listen(port,host,(err) => {
-    console.log("Server is listning on "+host+":"+port)
+    console.log("Server is listning on "+host.brightCyan+":".brightRed + port.toString().brightCyan)
 });
