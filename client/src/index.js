@@ -10,19 +10,19 @@ import Meals from './Meals';
 import Goals from './Goals';
 import Weight from './Weight';
 import Error404 from  './Error404';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Main />}/>
+      <Route path="/" element={<><Nav /><Main /></>}/>
       <Route path="/login" element={<Login />} />
-      <Route path="/days" element={<Days />} />
-      <Route path="/meals" element={<Meals />} />
-      <Route path="/goals" element={<Goals />} />
-      <Route path="/weight" element={<Weight />} />
-      <Route path="*" element={<Error404 />} />
+      <Route path="/days" element={<><Nav /><Days /></>} />
+      <Route path="/meals" element={<><Nav /><Meals /></>} />
+      <Route path="/goals" element={<><Nav /><Goals /></>} />
+      <Route path="/weight" element={<><Nav /><Weight /></>} />
+      <Route path="*" element={<><Nav /><Error404 /></>} />
     </Routes>
   </BrowserRouter>
 );
